@@ -1,0 +1,1211 @@
+{
+  "info": {
+    "_postman_id": "c1489db4-bd04-4b62-9964-988752553764",
+    "name": "Meteo API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53357708",
+    "_collection_link": "https://go.postman.co/collection/53357708-c1489db4-bd04-4b62-9964-988752553764?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Orų prognozės",
+      "item": [
+        {
+          "name": "Miestai",
+          "item": [
+            {
+              "name": "Vilnius",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "pm.test(\"Response time is less than 300ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(300);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/places/vilnius",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "places",
+                    "vilnius"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Klaipėda",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/places/klaipeda",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "places",
+                    "klaipeda"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Kaunas",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/places/kaunas",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "places",
+                    "kaunas"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Šiauliai",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/places/siauliai",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "places",
+                    "siauliai"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Panevėžys",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/places/panevezys",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "places",
+                    "panevezys"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Šilutė",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/places/silute",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "places",
+                    "silute"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Utena",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/places/utena",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "places",
+                    "utena"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Telšiai",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/places/telsiai",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "places",
+                    "telsiai"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Tauragė",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/places/taurage",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "places",
+                    "taurage"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Alytus",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 200\", function () {",
+                      "    pm.response.to.have.status(200);",
+                      "});",
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/places/alytus",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "places",
+                    "alytus"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Vietovės prognozių sąrašas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/places/vilnius/forecasts/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "places",
+                "vilnius",
+                "forecasts",
+                ""
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Orų prognozė vietovei",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/places/silute/forecasts/long-term",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "places",
+                "silute",
+                "forecasts",
+                "long-term"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Vietovių sąrašas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 300ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(300);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/places/",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "places",
+                ""
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Meteorologiniai stebėjimai",
+      "item": [
+        {
+          "name": "Stočių sąrašas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/stations",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "stations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Informacija apie stotį",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/stations/vilniaus-ams",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "stations",
+                "vilniaus-ams"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Informacija apie saugomus stoties duomenis",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/stations/vilniaus-ams/observations",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "stations",
+                "vilniaus-ams",
+                "observations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Stoties stebėjimų duomenys",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/stations/vilniaus-ams/observations/2026-03-23",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "stations",
+                "vilniaus-ams",
+                "observations",
+                "2026-03-23"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Hidrologiniai stebėjimai",
+      "item": [
+        {
+          "name": "Stočių sąrašas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/hydro-stations",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "hydro-stations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Informacija apie stotį",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/hydro-stations/nemajunu-vms",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "hydro-stations",
+                "nemajunu-vms"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Stoties teikiamų hidrologinių duomenų sąrašas",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/hydro-stations/nemajunu-vms/observations",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "hydro-stations",
+                "nemajunu-vms",
+                "observations"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Informacija apie saugomus stoties duomenis",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/hydro-stations/nemajunu-vms/observations/historical",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "hydro-stations",
+                "nemajunu-vms",
+                "observations",
+                "historical"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Stoties einamųjų metų hidrologiniai duomenys",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/hydro-stations/nemajunu-vms/observations/measured/2026-03-23",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "hydro-stations",
+                "nemajunu-vms",
+                "observations",
+                "measured",
+                "2026-03-23"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Stoties istoriniai hidrologiniai duomenys",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "pm.test(\"Status code is 200\", function () {",
+                  "    pm.response.to.have.status(200);",
+                  "});",
+                  "pm.test(\"Response time is less than 200ms\", function () {",
+                  "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                  "});"
+                ],
+                "type": "text/javascript",
+                "packages": {},
+                "requests": {}
+              }
+            }
+          ],
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseURL}}/hydro-stations/nemajunu-vms/observations/historical/2024-12-31",
+              "host": [
+                "{{baseURL}}"
+              ],
+              "path": [
+                "hydro-stations",
+                "nemajunu-vms",
+                "observations",
+                "historical",
+                "2024-12-31"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Negative cases",
+      "item": [
+        {
+          "name": "Orų prognozės",
+          "item": [
+            {
+              "name": "Miestai",
+              "item": [
+                {
+                  "name": "Vilnius",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseURL}}/places/vilnius",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "places",
+                        "vilnius"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Klaipėda",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseURL}}/places/klaipeda",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "places",
+                        "klaipeda"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Kaunas",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseURL}}/places/kaunas",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "places",
+                        "kaunas"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Šiauliai",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseURL}}/places/siauliai",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "places",
+                        "siauliai"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Panevėžys",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseURL}}/places/panevezys",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "places",
+                        "panevezys"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Šilutė",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseURL}}/places/silute",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "places",
+                        "silute"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Utena",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseURL}}/places/utena",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "places",
+                        "utena"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Telšiai",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseURL}}/places/telsiai",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "places",
+                        "telsiai"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Tauragė",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseURL}}/places/taurage",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "places",
+                        "taurage"
+                      ]
+                    }
+                  },
+                  "response": []
+                },
+                {
+                  "name": "Alytus",
+                  "request": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                      "raw": "{{baseURL}}/places/alytus",
+                      "host": [
+                        "{{baseURL}}"
+                      ],
+                      "path": [
+                        "places",
+                        "alytus"
+                      ]
+                    }
+                  },
+                  "response": []
+                }
+              ]
+            },
+            {
+              "name": "Neteisingos vietovės prognozių sąrašas",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 404\", function () {",
+                      "    pm.response.to.have.status(404);",
+                      "});",
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/places/durniskes/forecasts/",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "places",
+                    "durniskes",
+                    "forecasts",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Orų prognozė missing vietovei",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 404\", function () {",
+                      "    pm.response.to.have.status(404);",
+                      "});",
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/places//forecasts./long-term",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "places",
+                    "",
+                    "forecasts.",
+                    "long-term"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Vietovių sąrašas",
+              "event": [
+                {
+                  "listen": "test",
+                  "script": {
+                    "exec": [
+                      "pm.test(\"Status code is 400\", function () {",
+                      "    pm.response.to.have.status(400);",
+                      "});",
+                      "pm.test(\"Response time is less than 200ms\", function () {",
+                      "    pm.expect(pm.response.responseTime).to.be.below(200);",
+                      "});"
+                    ],
+                    "type": "text/javascript",
+                    "packages": {},
+                    "requests": {}
+                  }
+                }
+              ],
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "{{baseURL}}/place%/",
+                  "host": [
+                    "{{baseURL}}"
+                  ],
+                  "path": [
+                    "place%",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseURL",
+      "value": "",
+      "type": "default"
+    }
+  ]
+}
