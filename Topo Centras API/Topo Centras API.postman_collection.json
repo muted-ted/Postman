@@ -1,0 +1,437 @@
+{
+  "info": {
+    "_postman_id": "bd9051a5-60a3-4b3b-b111-761bd893e2c5",
+    "name": "Topo Centras API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53357708",
+    "_collection_link": "https://go.postman.co/collection/53357708-bd9051a5-60a3-4b3b-b111-761bd893e2c5?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Topo centras status check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}",
+          "host": [
+            "{{baseURL}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Registration",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "const email = pm.response.json().email;",
+              "pm.environment.set(\"email\", email);",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "pm.environment.set(\"password\", \"Test1801!\");"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"customer\":{\"email\":\"mohet15204@izkat.com\",\n\"extension_attributes\":{\"topo_club_customer_agreement\":false},\n\"custom_attributes\":[{\"attribute_code\":\"opt_in_profiling\",\"value\":\"0\"},{\"attribute_code\":\"opt_in_sms\",\"value\":\"0\"},{\"attribute_code\":\"opt_in_email\",\"value\":\"0\"},{\"attribute_code\":\"topo_club_consent_prompted\",\"value\":\"1\"}]},\n\"password\":\"Test1801!\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}rest/V1/customers",
+          "host": [
+            "{{baseURL}}rest"
+          ],
+          "path": [
+            "V1",
+            "customers"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "pm.environment.set(\"password\", \"Test1801!\");"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "const token = pm.response.text().replace(/\"/g, \"\");",
+              "pm.environment.set(\"customerToken\", token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"username\":\"{{email}}\",\n\"password\":\"{{password}}\",\n\"recaptchaToken\":\"\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}rest/V1/integration/customer/token",
+          "host": [
+            "{{baseURL}}rest"
+          ],
+          "path": [
+            "V1",
+            "integration",
+            "customer",
+            "token"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Cart item list",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const response = pm.response.json();",
+              "const items = response.cart.items;",
+              "const totals = response.totals.items;",
+              "",
+              "items.forEach(item => {",
+              "    const totalInfo = totals.find(t => t.item_id === item.item_id);",
+              "    console.log(`",
+              "        Name: ${item.name}",
+              "        SKU: ${item.sku}",
+              "        Item ID: ${item.item_id}",
+              "        Qty: ${item.qty}",
+              "        Price (incl. tax): ${totalInfo.price_incl_tax} EUR",
+              "    `);",
+              "});",
+              "",
+              "console.log(`Grand Total: ${response.totals.grand_total} EUR`);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"input\":{\"country_id\":\"LT\",\"post_code\":null}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}rest/V1/carts/mine/full-cart",
+          "host": [
+            "{{baseURL}}rest"
+          ],
+          "path": [
+            "V1",
+            "carts",
+            "mine",
+            "full-cart"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Add item to cart",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "const response = pm.response.json();",
+              "const itemId = response.cart.items[0].item_id;",
+              "pm.environment.set(\"cartItemId\", itemId);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"cartItem\":{\"qty\":5,\n\"sku\":\"999902036648\",\n\"name\":\"Nešiojamas kompiuteris Asus Vivobook 16 M1607KA-MB024W Ryzen AI 5 340/16/512GB SSD/W11H\",\n\"quote_id\":\"49898766\"}}\n\n\n",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}rest/V1/carts/mine/items-full",
+          "host": [
+            "{{baseURL}}rest"
+          ],
+          "path": [
+            "V1",
+            "carts",
+            "mine",
+            "items-full"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Delete cart item",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{baseURL}}rest/V1/carts/mine/items-full/sku/999902036648/itemId/{{cartItemId}}",
+          "host": [
+            "{{baseURL}}rest"
+          ],
+          "path": [
+            "V1",
+            "carts",
+            "mine",
+            "items-full",
+            "sku",
+            "999902036648",
+            "itemId",
+            "{{cartItemId}}"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Tapti topo klubo nariu",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"customer\":{\"email\":\"mohet15204@izkat.com\",\n\"website_id\":1,\n\"extension_attributes\":{\"topo_club_customer_agreement\":true},\"custom_attributes\":[{\"attribute_code\":\"opt_in_profiling\",\"value\":\"1\"},{\"attribute_code\":\"opt_in_sms\",\"value\":\"1\"},{\"attribute_code\":\"opt_in_email\",\"value\":\"1\"},{\"attribute_code\":\"topo_club_consent_prompted\",\"value\":\"1\"}]}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}rest/V1/customers/me",
+          "host": [
+            "{{baseURL}}rest"
+          ],
+          "path": [
+            "V1",
+            "customers",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Išstoti iš klubo",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"customer\":{\"email\":\"mohet15204@izkat.com\",\"website_id\":1,\"extension_attributes\":{\"topo_club_customer_agreement\":false},\"custom_attributes\":[{\"attribute_code\":\"opt_in_profiling\",\"value\":\"1\"},{\"attribute_code\":\"opt_in_sms\",\"value\":\"1\"},{\"attribute_code\":\"opt_in_email\",\"value\":\"1\"},{\"attribute_code\":\"topo_club_consent_prompted\",\"value\":\"1\"}]}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}rest/V1/customers/me",
+          "host": [
+            "{{baseURL}}rest"
+          ],
+          "path": [
+            "V1",
+            "customers",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Update profile info",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"customer\":{\"email\":\"gisahal358@izkat.com\",\n\"firstname\":\"Tes\",\n\"lastname\":\"testname\",\n\"dob\":\"2010-03-17\",\n\"website_id\":1,\n\"group_id\":1,\n\"custom_attributes\":[{\"attribute_code\":\"sforce_disable_sync\",\"value\":\"0\"},{\"attribute_code\":\"opt_in_email\",\"value\":\"0\"},{\"attribute_code\":\"opt_in_sms\",\"value\":\"0\"},{\"attribute_code\":\"opt_in_profiling\",\"value\":\"0\"},{\"attribute_code\":\"topo_club_customer_agreement\",\"value\":\"1\"},{\"attribute_code\":\"topo_club_consent_prompted\",\"value\":\"1\"},{\"attribute_code\":\"prohibit_custom_proposal_price\",\"value\":\"0\"},{\"attribute_code\":\"opt_in_email_changed_at\",\"value\":\"2026-03-26 08:13:13\"},{\"attribute_code\":\"opt_in_sms_changed_at\",\"value\":\"2026-03-26 08:13:13\"},{\"attribute_code\":\"opt_in_profiling_changed_at\",\"value\":\"2026-03-26 08:13:13\"},{\"attribute_code\":\"topo_club_customer_changed_at\",\"value\":\"2026-03-26 08:13:13\"},{\"attribute_code\":\"role\",\"value\":\"client\"},{\"attribute_code\":\"telephone\",\"value\":\"\"}]}}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}rest/V1/customers/me",
+          "host": [
+            "{{baseURL}}rest"
+          ],
+          "path": [
+            "V1",
+            "customers",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get profile info",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "method": "GET",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseURL}}rest/V1/customers/me",
+          "host": [
+            "{{baseURL}}rest"
+          ],
+          "path": [
+            "V1",
+            "customers",
+            "me"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{customerToken}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ]
+}
