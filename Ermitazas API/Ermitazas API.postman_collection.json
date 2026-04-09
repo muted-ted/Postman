@@ -1,0 +1,190 @@
+{
+  "info": {
+    "_postman_id": "e88a2cbb-9f38-4a64-80c0-9d2e98c2013b",
+    "name": "Ermitazas API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "53357708",
+    "_collection_link": "https://go.postman.co/collection/53357708-e88a2cbb-9f38-4a64-80c0-9d2e98c2013b?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Register new user",
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "const email = `test${Date.now()}@gmail.com`;",
+              "pm.environment.set(\"generatedEmail\", email);",
+              "pm.environment.set(\"firstName\", \"Test\");",
+              "pm.environment.set(\"lastName\", \"User\");",
+              "pm.environment.set(\"originalPwd\", \"Testing123!\");"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"firstName\":\"{{firstName}}\",\n\"lastName\":\"{{lastName}}\",\n\"phoneNumber\":\"+37060412911\",\n\"email\":\"{{generatedEmail}}\",\n\"password\":\"{{originalPwd}}\",\n\"ermiClub\":false,\n\"subscribedToNewsletter\":false,\n\"directMarketing\":false,\n\"classicCard\":null}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/register",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "register"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Login an existing user",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "const responseJson = pm.response.json();",
+              "pm.environment.set(\"loginToken\", responseJson.data.token);"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              ""
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "auth": {
+          "type": "noauth"
+        },
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"email\":\"{{generatedEmail}}\",\n\"password\":\"{{originalPwd}}\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{baseUrl}}/login",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "login"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Change password for an existing user",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        },
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "pm.environment.set(\"newPwd\", \"Testing1234!\")"
+            ],
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {}
+          }
+        }
+      ],
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Token",
+            "value": "{{loginToken}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"oldPassword\":\"{{originalPwd}}\",\"newPassword\":\"{{newPwd}}\"}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "https://mp.huts.lt/api/v1/customer/changePassword",
+          "protocol": "https",
+          "host": [
+            "mp",
+            "huts",
+            "lt"
+          ],
+          "path": [
+            "api",
+            "v1",
+            "customer",
+            "changePassword"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}
